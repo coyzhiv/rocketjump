@@ -1,0 +1,194 @@
+[gd_scene load_steps=22 format=3 uid="uid://cxjkp0h8rppge"]
+
+[ext_resource type="Texture2D" uid="uid://b1o6lipsy8gav" path="res://sprites/player_related/player.png" id="1_3wdea"]
+[ext_resource type="Script" uid="uid://dm1a0jpags28m" path="res://game/player/player.gd" id="1_tu745"]
+[ext_resource type="AudioStream" uid="uid://cjw4twi1ul4v0" path="res://audio/sound_effects/death.ogg" id="2_bfye4"]
+[ext_resource type="Texture2D" uid="uid://drwhyigt7ujvy" path="res://sprites/particles/dust_projectile.png" id="2_r3c6y"]
+[ext_resource type="PackedScene" uid="uid://qajspgyelo7n" path="res://game/player/gun.tscn" id="3_f1xj7"]
+[ext_resource type="AudioStream" uid="uid://d1tedbdsysrme" path="res://audio/sound_effects/dash.ogg" id="3_hptcy"]
+[ext_resource type="AudioStream" uid="uid://lglc00x2vcct" path="res://audio/sound_effects/fall4.ogg" id="4_gu6ry"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xs1a7"]
+polygon = PackedVector2Array(-7.69231, 1.53846, -7.69231, 4.61539, -8, 6, -8.66667, 6.66667, -9.33333, 8, -10, 11.3333, -11.3333, 11.3333, -11.3333, 16, -2, 16, -2, 15.3333, -0.666667, 15.3333, -0.666667, 14, 0.666667, 14, 0.666667, 15.3333, 2, 15.3333, 2, 16, 10, 16, 10, 10, 9.33333, 10, 9.33333, 8.66667, 8.46154, 7.69231, 9.23077, 6.15385, 9.23077, 0, 6.92308, -6.92308, 1.53846, -9.23077, -2.30769, -8.46154, -4.61539, -6.92308, -7.69231, -3.07692)
+
+[sub_resource type="Curve" id="Curve_xfeek"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.533333, 0.527472), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yvhnq"]
+curve = SubResource("Curve_xfeek")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6cbhh"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 360.0
+initial_velocity_max = 360.0
+angular_velocity_max = 180.0
+gravity = Vector3(0, 1, 0)
+alpha_curve = SubResource("CurveTexture_yvhnq")
+
+[sub_resource type="Curve" id="Curve_y4kkl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.533333, 0.527472), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4cglg"]
+curve = SubResource("Curve_y4kkl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l8uyk"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+angular_velocity_max = 180.0
+gravity = Vector3(0, 1, 0)
+scale_min = 2.0
+scale_max = 2.0
+alpha_curve = SubResource("CurveTexture_4cglg")
+
+[sub_resource type="Curve" id="Curve_j3q2x"]
+_data = [Vector2(0, 0.604396), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u2qtd"]
+curve = SubResource("Curve_j3q2x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_465uf"]
+particle_flag_disable_z = true
+direction = Vector3(0, -5, 0)
+spread = 69.27
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+alpha_curve = SubResource("CurveTexture_u2qtd")
+
+[sub_resource type="Animation" id="Animation_rpf00"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ap2b7"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n7fap"]
+_data = {
+&"RESET": SubResource("Animation_rpf00"),
+&"idle": SubResource("Animation_ap2b7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq7c7"]
+size = Vector2(27, 3)
+
+[node name="Player" type="CharacterBody2D"]
+process_mode = 1
+collision_mask = 11
+script = ExtResource("1_tu745")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(1.3, 1.3)
+occluder = SubResource("OccluderPolygon2D_xs1a7")
+metadata/_edit_lock_ = true
+
+[node name="Audios" type="Node2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(1.3, 1.3)
+
+[node name="Death" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("2_bfye4")
+bus = &"SFX"
+
+[node name="Dash" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("3_hptcy")
+bus = &"SFX"
+
+[node name="Fall" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("4_gu6ry")
+bus = &"SFX"
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="DeathParticles" type="GPUParticles2D" parent="Particles"]
+emitting = false
+amount = 20
+texture = ExtResource("2_r3c6y")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_6cbhh")
+
+[node name="DashParticles2" type="GPUParticles2D" parent="Particles"]
+emitting = false
+amount = 10
+texture = ExtResource("2_r3c6y")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_l8uyk")
+
+[node name="LandingParticles" type="GPUParticles2D" parent="Particles"]
+position = Vector2(0, 17)
+emitting = false
+texture = ExtResource("2_r3c6y")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_465uf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 18)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("1_3wdea")
+offset = Vector2(0, -16)
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n7fap")
+}
+
+[node name="Gun" parent="." instance=ExtResource("3_f1xj7")]
+position = Vector2(0, 7)
+
+[node name="Marker2D" type="Marker2D" parent="Gun"]
+position = Vector2(16, -3)
+
+[node name="LandingArea2" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 16
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LandingArea2"]
+position = Vector2(-0.5, 18.5)
+shape = SubResource("RectangleShape2D_nq7c7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, 13, -11, 15, -10, 16, -8, 17, 10, 17, 12, 16, 13, 15, 14, 13, 14, -14, -12, -14)
+
+[connection signal="body_entered" from="LandingArea2" to="." method="_on_landing_area_2_body_entered"]

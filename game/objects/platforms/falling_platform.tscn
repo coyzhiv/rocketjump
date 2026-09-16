@@ -1,0 +1,428 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3rlunim3u3rv"]
+
+[ext_resource type="Script" uid="uid://b13sa63ateh4g" path="res://game/objects/platforms/falling_platform.gd" id="1_owd3h"]
+[ext_resource type="Texture2D" uid="uid://drwhyigt7ujvy" path="res://sprites/particles/dust_projectile.png" id="2_i2w85"]
+[ext_resource type="Texture2D" uid="uid://wwy7fom0vw6s" path="res://sprites/objects/platforms/falling platforms/brick.png" id="3_kxs4p"]
+[ext_resource type="AudioStream" uid="uid://dka36chubbm43" path="res://audio/sound_effects/platform.wav" id="4_hx2a7"]
+
+[sub_resource type="Curve" id="Curve_btod1"]
+_data = [Vector2(0.145946, 0.736264), 0.0, 0.0, 0, 0, Vector2(0.848649, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1eaub"]
+curve = SubResource("Curve_btod1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kxty0"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_1eaub")
+
+[sub_resource type="Animation" id="Animation_46xay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bricks/Brick:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-38, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bricks/Brick:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bricks/Brick:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bricks/Brick2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bricks/Brick2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bricks/Brick2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bricks/Brick3:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Bricks/Brick3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bricks/Brick3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Bricks/Brick4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(35, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Bricks/Brick4:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Bricks/Brick4:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8e7lk"]
+resource_name = "fall"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bricks/Brick:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-38, 0), Vector2(-58, 41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bricks/Brick:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.54113]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bricks/Brick:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bricks/Brick2:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 1), Vector2(-11, 47)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bricks/Brick2:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bricks/Brick2:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.13628]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bricks/Brick3:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(11, 1), Vector2(23, 53)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Bricks/Brick3:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.13097]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bricks/Brick3:modulate")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Bricks/Brick4:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(35, 1), Vector2(45, 50)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Bricks/Brick4:rotation")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.88496]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Bricks/Brick4:modulate")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hy8dp"]
+_data = {
+&"RESET": SubResource("Animation_46xay"),
+&"fall": SubResource("Animation_8e7lk")
+}
+
+[node name="FallingPlatform" type="AnimatableBody2D" groups=["Buttons"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_owd3h")
+
+[node name="Dust" type="Node2D" parent="."]
+
+[node name="LandingParticles" type="GPUParticles2D" parent="Dust"]
+position = Vector2(-25, 7)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_kxty0")
+texture = ExtResource("2_i2w85")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.51
+
+[node name="LandingParticles2" type="GPUParticles2D" parent="Dust"]
+position = Vector2(-50, 6)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_kxty0")
+texture = ExtResource("2_i2w85")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.51
+
+[node name="LandingParticles3" type="GPUParticles2D" parent="Dust"]
+position = Vector2(0, 7)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_kxty0")
+texture = ExtResource("2_i2w85")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.51
+
+[node name="LandingParticles4" type="GPUParticles2D" parent="Dust"]
+position = Vector2(23, 6)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_kxty0")
+texture = ExtResource("2_i2w85")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.51
+
+[node name="LandingParticles5" type="GPUParticles2D" parent="Dust"]
+position = Vector2(42, 7)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_kxty0")
+texture = ExtResource("2_i2w85")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.51
+
+[node name="Bricks" type="Node2D" parent="."]
+
+[node name="Brick" type="Sprite2D" parent="Bricks"]
+position = Vector2(-38, 0)
+texture = ExtResource("3_kxs4p")
+hframes = 4
+
+[node name="Brick2" type="Sprite2D" parent="Bricks"]
+position = Vector2(-13, 1)
+texture = ExtResource("3_kxs4p")
+hframes = 4
+frame = 1
+
+[node name="Brick3" type="Sprite2D" parent="Bricks"]
+position = Vector2(11, 1)
+texture = ExtResource("3_kxs4p")
+hframes = 4
+frame = 2
+
+[node name="Brick4" type="Sprite2D" parent="Bricks"]
+position = Vector2(35, 1)
+texture = ExtResource("3_kxs4p")
+hframes = 4
+frame = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-53, -3, -52, -3, -52, -5, -51, -5, -51, -6, -48, -6, -48, -7, -45, -7, -45, -8, -37, -8, -37, -9, -29, -9, -29, -8, -26, -8, -26, -7, -24, -7, -24, -8, -23, -8, -23, -9, -21, -9, -21, -10, -14, -10, -14, -9, -12, -9, -12, -8, -4, -8, -4, -7, -3, -7, -3, -6, -2, -6, -2, -7, -1, -7, -1, -8, 2, -8, 2, -9, 5, -9, 5, -10, 11, -10, 11, -9, 15, -9, 15, -10, 17, -10, 17, -11, 21, -11, 21, -10, 23, -10, 23, -8, 24, -8, 24, -7, 26, -7, 26, -8, 28, -8, 28, -9, 40, -9, 40, -8, 44, -8, 44, -7, 46, -7, 46, -6, 48, -6, 48, -5, 49, -5, 49, -3, 50, -3, 50, 3, 49, 3, 49, 5, 47, 5, 47, 6, 45, 6, 45, 7, 41, 7, 41, 8, 39, 8, 39, 9, 27, 9, 27, 8, 25, 8, 25, 7, 24, 7, 24, 6, 23, 6, 23, 7, 22, 7, 22, 8, 20, 8, 20, 9, 7, 9, 7, 8, 1, 8, 1, 7, -1, 7, -1, 8, -3, 8, -3, 9, -22, 9, -22, 8, -24, 8, -24, 7, -26, 7, -26, 8, -29, 8, -29, 9, -30, 9, -30, 10, -40, 10, -40, 9, -45, 9, -45, 8, -47, 8, -47, 7, -50, 7, -50, 6, -51, 6, -51, 4, -52, 4, -52, 3, -53, 3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hy8dp")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 2
+
+[node name="Area2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-53, -3, -52, -3, -52, -5, -51, -5, -51, -6, -48, -6, -48, -7, -45, -7, -45, -8, -37, -8, -37, -9, -29, -9, -29, -8, -26, -8, -26, -7, -24, -7, -24, -8, -23, -8, -23, -9, -21, -9, -21, -10, -14, -10, -14, -9, -12, -9, -12, -8, -4, -8, -4, -7, -3, -7, -3, -6, -2, -6, -2, -7, -1, -7, -1, -8, 2, -8, 2, -9, 5, -9, 5, -10, 11, -10, 12, -9, 15, -9, 15, -10, 17, -10, 17, -11, 21, -11, 21, -10, 23, -10, 23, -8, 24, -8, 24, -7, 26, -7, 26, -8, 28, -8, 28, -9, 40, -9, 40, -8, 44, -8, 44, -7, 46, -7, 46, -6, 48, -6, 48, -5, 49, -5, 49, -3, 50, -3, 48, 0, 41, -6, -44, -5, -51, -1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hx2a7")
+bus = &"SFX"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

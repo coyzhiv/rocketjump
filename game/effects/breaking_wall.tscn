@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://tedw5mknt16e"]
+
+[ext_resource type="Texture2D" uid="uid://drwhyigt7ujvy" path="res://sprites/particles/dust_projectile.png" id="1_rj0aa"]
+
+[sub_resource type="Curve" id="Curve_804re"]
+_limits = [0.0, 20.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 10.3297), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lnko0"]
+curve = SubResource("Curve_804re")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6dvba"]
+particle_flag_disable_z = true
+angle_min = -77.9
+angle_max = 100.0
+angle_curve = SubResource("CurveTexture_lnko0")
+direction = Vector3(20, -15, 0)
+spread = 30.0
+initial_velocity_min = 240.0
+initial_velocity_max = 480.0
+gravity = Vector3(0, 98, 0)
+scale_min = 5.0
+scale_max = 10.0
+
+[node name="BreakingWall" type="GPUParticles2D"]
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_6dvba")
+texture = ExtResource("1_rj0aa")
+lifetime = 10.0
+one_shot = true
+speed_scale = 3.76
+explosiveness = 1.0

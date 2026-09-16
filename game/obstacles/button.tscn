@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpfdeh2ypn3ue"]
+
+[ext_resource type="Script" uid="uid://dg33owfmjdshn" path="res://game/obstacles/Node2D.gd" id="1_t5i77"]
+[ext_resource type="Texture2D" uid="uid://d3v7lpgcu8nuc" path="res://sprites/usable/new_button1.png" id="2_3ux3n"]
+[ext_resource type="Texture2D" uid="uid://pjbhe5ywwxec" path="res://sprites/usable/new_button2.png" id="3_gp7oe"]
+[ext_resource type="AudioStream" uid="uid://xo3nj1wsc7f6" path="res://audio/sound_effects/button.ogg" id="4_74gxg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vbtmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3ux3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gp7oe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aafpg"]
+size = Vector2(12, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84tik"]
+size = Vector2(8, 3)
+
+[node name="Button" type="StaticBody2D" groups=["Buttons"]]
+scale = Vector2(3, 3)
+collision_layer = 18
+collision_mask = 7
+script = ExtResource("1_t5i77")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_vbtmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_aafpg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_84tik")
+
+[node name="MashSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_74gxg")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://cks8txhsfgq3y"]
+
+[ext_resource type="Script" uid="uid://bu3y5deu62bjr" path="res://PauseMenu.gd" id="1_t5ohc"]
+[ext_resource type="FontFile" uid="uid://dt0fj8l0wqico" path="res://fonts/PublicPixel-z84yD.ttf" id="2_vqdxd"]
+[ext_resource type="Script" uid="uid://dgtm4hwyrfivm" path="res://game/levels/mainmenu/MusicVolume.gd" id="3_02340"]
+[ext_resource type="Theme" uid="uid://cu23cfqcmqym" path="res://game/ui_themes/new_theme.tres" id="3_f46s8"]
+[ext_resource type="Script" uid="uid://c2hk1p63ujnxf" path="res://game/levels/mainmenu/SFXVolume.gd" id="4_lxgqt"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_t5ohc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Paused" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 45.0
+offset_right = 48.0
+offset_bottom = 68.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_vqdxd")
+text = "Paused"
+
+[node name="Music" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_top = 189.0
+offset_right = 45.0
+offset_bottom = 212.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_vqdxd")
+text = "Music
+"
+
+[node name="SFX" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = 281.0
+offset_right = 26.0
+offset_bottom = 304.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_vqdxd")
+text = "SFX"
+
+[node name="SFX2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.0
+offset_top = 370.0
+offset_right = 82.0
+offset_bottom = 405.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_vqdxd")
+text = "Fullscreen
+Alt+Enter"
+horizontal_alignment = 1
+
+[node name="MusicVolume" type="HSlider" parent="."]
+process_mode = 2
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 534.0
+offset_top = -128.0
+offset_right = -527.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_f46s8")
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("3_02340")
+
+[node name="SFXVolume" type="HSlider" parent="."]
+process_mode = 2
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 535.0
+offset_top = -42.0
+offset_right = -526.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_f46s8")
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("4_lxgqt")

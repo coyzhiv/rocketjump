@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp6f2ju4y05nu"]
+
+[ext_resource type="Texture2D" uid="uid://2a3m1aybedjv" path="res://sprites/objects/background/window.png" id="1_udpq8"]
+[ext_resource type="Texture2D" uid="uid://bfmskh3ynnm41" path="res://sprites/light/circle.png" id="2_s2sud"]
+
+[node name="Window" type="Sprite2D"]
+texture = ExtResource("1_udpq8")
+hframes = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.6
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("2_s2sud")

@@ -1,0 +1,320 @@
+[gd_scene load_steps=19 format=3 uid="uid://d2kt1k0haot5n"]
+
+[ext_resource type="Script" uid="uid://dck73y07lyc8c" path="res://Level1Monster.gd" id="1_emcu5"]
+[ext_resource type="Texture2D" uid="uid://tolgjt6c21xd" path="res://sprites/objects/monster/monster_leg.png" id="2_uuo0r"]
+[ext_resource type="Texture2D" uid="uid://dfutl82vdpssj" path="res://sprites/objects/monster/monster_level1_animation/monster1.png" id="3_kvlmr"]
+[ext_resource type="Texture2D" uid="uid://bgddt4hcylxbs" path="res://sprites/objects/monster/monster_level1_animation/monster2.png" id="4_htmxu"]
+[ext_resource type="Texture2D" uid="uid://fp7ujdsuvs7n" path="res://sprites/objects/monster/monster_level1_animation/monster3.png" id="5_sxtp2"]
+[ext_resource type="Texture2D" uid="uid://uyj3k3ly8grt" path="res://sprites/objects/monster/monster_level1_animation/monster4.png" id="6_fk6dh"]
+[ext_resource type="Texture2D" uid="uid://d4folir011mry" path="res://sprites/objects/monster/monster_arm.png" id="7_sm5jf"]
+[ext_resource type="Texture2D" uid="uid://b6pcuk44bebqo" path="res://sprites/objects/monster/monster_level1_animation/monsterfade.png" id="8_omavj"]
+
+[sub_resource type="Curve2D" id="Curve2D_420dq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 38, 94, 0, 0, 0, 0, 85, 73, 0, 0, 0, 0, 134, 64, 0, 0, 0, 0, 163, 66, 0, 0, 0, 0, 193, 74, 0, 0, 0, 0, 214, 101, 0, 0, 0, 0, 228, 137, 0, 0, 0, 0, 36, 138, 0, 0, 0, 0, 5, 131, 0, 0, 0, 0, 9, 122, 0, 0, 0, 0, 15, 113, 0, 0, 0, 0, 20, 107, 0, 0, 0, 0, 29, 99)
+}
+point_count = 13
+
+[sub_resource type="Animation" id="Animation_mbga3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 53)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.762456, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.75057]
+}
+
+[sub_resource type="Animation" id="Animation_ukb60"]
+resource_name = "arm"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 53), Vector2(27, 41), Vector2(47.4061, 38.859), Vector2(72, 41), Vector2(101, 59), Vector2(92.1083, 76.6533), Vector2(67, 73), Vector2(43, 77), Vector2(16.3638, 76.4769), Vector2(-8, 72), Vector2(-1.42595, 56.8083)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.762456, 1), Vector2(0.545056, 1), Vector2(0.726952, 1), Vector2(1.1108, 1), Vector2(1.65443, 1), Vector2(1.65637, 1), Vector2(1.32772, 1), Vector2(1.18614, 1), Vector2(1.08984, 1), Vector2(1.08984, 1), Vector2(0.831198, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.75057, 1.10479, 0.630064, 0.413643, 0.532325, 0.651008, 0.888373, 1.14843, 1.50447, 1.9792]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_euxtf"]
+_data = {
+&"RESET": SubResource("Animation_mbga3"),
+&"arm": SubResource("Animation_ukb60")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_ntjik"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4, -9, 0, 0, 0, 0, 22, -7, 0, 0, 0, 0, 27, 8, 0, 0, 0, 0, 7, 15, 0, 0, 0, 0, -5, 5)
+}
+point_count = 5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uqlr4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kvlmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_htmxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sxtp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fk6dh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_vix3c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 227, 138, 0, 0, 0, 0, 46, 138, 0, 0, 0, 0, 19, 136, 0, 0, 0, 0, 8, 126, 0, 0, 0, 0, 16, 114, 0, 0, 0, 0, 28, 106, 0, 0, 0, 0, 52, 87, 0, 0, 0, 0, 86, 73, 0, 0, 0, 0, 115, 68, 0, 0, 0, 0, 137, 64, 0, 0, 0, 0, 169, 67, 0, 0, 0, 0, 193, 73, 0, 0, 0, 0, 207, 88, 0, 0, 0, 0, 220, 117, 0, 0, 0, 0, 229, 137, 0, 0, 0, 0, 228, 138)
+}
+point_count = 16
+
+[sub_resource type="Animation" id="Animation_m8he8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(94.8734, 79.7572)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.514872]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.72524, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fqj8q"]
+resource_name = "arm"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(94.8734, 79.7572), Vector2(66, 74), Vector2(49, 77), Vector2(25, 76), Vector2(4.75125, 77.291), Vector2(10.6522, 61.4237), Vector2(15.9583, 47.1562), Vector2(39.9409, 34.8018), Vector2(63.0615, 34.8258), Vector2(81.2862, 51.5425), Vector2(95, 69)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.514872, 0.752237, 1.10828, 1.46433, 1.92684, 1.92684, 1.33343, 0.623083, 0.5044, 0.5044, 0.623083]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.72524, 1), Vector2(1.42942, 1), Vector2(1.13668, 1), Vector2(1.04526, 1), Vector2(1.12377, 1), Vector2(0.859249, 1), Vector2(0.859249, 1), Vector2(0.800391, 1), Vector2(1.10696, 1), Vector2(1.41547, 1), Vector2(1.83158, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qwqgf"]
+_data = {
+&"RESET": SubResource("Animation_m8he8"),
+&"arm": SubResource("Animation_fqj8q")
+}
+
+[node name="Level1Monster" type="Node2D" groups=["Buttons"]]
+script = ExtResource("1_emcu5")
+
+[node name="LeftArm" type="Path2D" parent="."]
+curve = SubResource("Curve2D_420dq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="LeftArm"]
+position = Vector2(212.974, 137.078)
+rotation = 3.1113
+progress = 249.274
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftArm/PathFollow2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-21, -1)
+rotation = 3.14159
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_uuo0r")
+
+[node name="LeftArea" type="Area2D" parent="LeftArm/PathFollow2D/Sprite2D"]
+position = Vector2(235.637, 64.2124)
+rotation = 0.0302939
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftArm/PathFollow2D/Sprite2D/LeftArea"]
+position = Vector2(-235, -58.75)
+polygon = PackedVector2Array(-61.25, -26.25, -42.5, -31.25, -20, -31.25, 0, -26.25, 13.75, -22.5, 28.75, -17.5, 42.5, -17.5, 58.75, -18.75, 78.75, -16.25, 97.5, -11.25, 107.5, -1.24998, 113.75, 12.5, 113.75, 18.75, 83.75, 15, 47.5, 15, 21.25, 20, -3.75, 21.25, -25, 17.5, -52.5, 20, -81.25, 20, -100, 18.75, -105, 6.25, -103.75, -6.25, -92.5, -15, -77.5, -22.5)
+
+[node name="Arm2" type="Sprite2D" parent="."]
+position = Vector2(8, 53)
+rotation = 1.75057
+scale = Vector2(0.762456, 1)
+texture = ExtResource("7_sm5jf")
+
+[node name="LeftArmAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_euxtf")
+}
+
+[node name="Body" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ntjik")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Body"]
+position = Vector2(4, -9)
+rotation = -3.14159
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body/PathFollow2D"]
+position = Vector2(24, -2.09815e-06)
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_uqlr4")
+autoplay = "default"
+frame_progress = 0.522629
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(8, 0)
+polygon = PackedVector2Array(78, -159, 91, -149, 52, -179, 63, -184, 84, -185, 131, -122, 144, -130, 189, -55, 192, -43, 192, -30, 187, -25, 191, -9, 191, 2, 188, 5, 179, 4, 141, 72, 129, 101, 102, 126, 73, 92, 54, 100, 44, 115, 16, 128, 14, 154, -26, 154, -34, 116, -48, 110, -50, -31, -34, -36, -23, -47, -7, -53, 20, -56, 40, -55, 64, -51, 74, -55, 85, -67, 91, -80, 96, -96, 95, -108, 89, -125, 85, -137, 73, -148, 69, -153, 80, -151)
+
+[node name="Arm" type="Sprite2D" parent="."]
+position = Vector2(94.8734, 79.7572)
+rotation = 0.514872
+scale = Vector2(1.72524, 1)
+texture = ExtResource("7_sm5jf")
+
+[node name="RightArm" type="Path2D" parent="."]
+position = Vector2(1, 1)
+curve = SubResource("Curve2D_vix3c")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="RightArm"]
+position = Vector2(227, 138)
+rotation = 3.14159
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="RightArm/PathFollow2D"]
+position = Vector2(-21, -1)
+rotation = 3.14159
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_uuo0r")
+
+[node name="RightArea" type="Area2D" parent="RightArm/PathFollow2D/Sprite2D"]
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightArm/PathFollow2D/Sprite2D/RightArea"]
+polygon = PackedVector2Array(-61.25, -26.25, -42.5, -31.25, -20, -31.25, 0, -26.25, 13.75, -22.5, 28.75, -17.5, 42.5, -17.5, 58.75, -18.75, 78.75, -16.25, 97.5, -11.25, 107.5, -1.24998, 113.75, 12.5, 113.75, 18.75, 83.75, 15, 47.5, 15, 21.25, 20, -3.75, 21.25, -25, 17.5, -52.5, 20, -81.25, 20, -100, 18.75, -105, 6.25, -103.75, -6.25, -92.5, -15, -77.5, -22.5)
+
+[node name="RightArmAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qwqgf")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(61, -13)
+texture = ExtResource("8_omavj")
+
+[connection signal="body_entered" from="LeftArm/PathFollow2D/Sprite2D/LeftArea" to="." method="_on_left_area_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="RightArm/PathFollow2D/Sprite2D/RightArea" to="." method="_on_right_area_body_entered"]

@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://cu23cfqcmqym"]
+
+[ext_resource type="Texture2D" uid="uid://dm0fh240mf6sf" path="res://sprites/inputs/ui_slider.png" id="1_qnr5r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogtev"]
+bg_color = Color(1, 1, 1, 1)
+
+[resource]
+HSlider/icons/grabber = ExtResource("1_qnr5r")
+HSlider/icons/grabber_disabled = ExtResource("1_qnr5r")
+HSlider/icons/grabber_highlight = ExtResource("1_qnr5r")
+HSlider/icons/tick = ExtResource("1_qnr5r")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ogtev")

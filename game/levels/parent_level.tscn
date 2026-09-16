@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0utkg1dyfh5s"]
+
+[ext_resource type="Script" uid="uid://bg1d6k5olqj3x" path="res://game/levels/parent_level.gd" id="1_484jh"]
+[ext_resource type="PackedScene" uid="uid://cxjkp0h8rppge" path="res://game/player/player.tscn" id="1_owh4k"]
+[ext_resource type="PackedScene" uid="uid://2utpdfro21hl" path="res://game/player/ui.tscn" id="3_40j5c"]
+[ext_resource type="AudioStream" uid="uid://1wimag56mn5g" path="res://audio/sound_effects/shot.ogg" id="4_w5brh"]
+
+[node name="ParentLevel" type="Node2D"]
+script = ExtResource("1_484jh")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_owh4k")]
+position = Vector2(551, 486)
+
+[node name="UI" parent="." instance=ExtResource("3_40j5c")]
+
+[node name="Audios" type="Node2D" parent="."]
+
+[node name="BulletSound" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("4_w5brh")
+volume_db = -5.0
+
+[connection signal="shot" from="Player" to="." method="_on_player_shot"]

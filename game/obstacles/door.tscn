@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl0xmof6osvvr"]
+
+[ext_resource type="Script" uid="uid://du3yu0dnshw5j" path="res://game/obstacles/door.gd" id="1_c0h8j"]
+[ext_resource type="Texture2D" uid="uid://brivjryfjjwsw" path="res://sprites/usable/new_door.png" id="2_ut3m3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1wsr"]
+size = Vector2(72, 6)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qscnx"]
+polygon = PackedVector2Array(-36, -3, 35, -3, 35, 3, -36, 3, -36, 2.33333, -36.6667, 2.33333, -36.6667, 2, -37, 2, -37, -2, -36.6667, -2, -36.3333, -2.66667, -36.3333, -2.66667)
+
+[node name="door" type="StaticBody2D" groups=["Buttons"]]
+scale = Vector2(3, 3)
+collision_layer = 18
+collision_mask = 31
+script = ExtResource("1_c0h8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_n1wsr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-14.6667, 0.333333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ut3m3")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_qscnx")

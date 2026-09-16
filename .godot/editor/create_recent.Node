@@ -1,0 +1,15 @@
+Label
+TextEdit
+Sprite2D
+AnimationPlayer
+CollisionShape2D
+Area2D
+CharacterBody2D
+CollisionPolygon2D
+StaticBody2D
+CPUParticles2D
+GPUParticles2D
+Node2D
+AnimatableBody2D
+AudioStreamPlayer
+AudioStreamPlayer2D

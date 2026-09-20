@@ -1,160 +1,175 @@
 # 🚀 Rocketjump Gunslaughter
 
-### A 2D platformer built around one core idea: **your weapon is also your movement system.**
+### A 2D puzzle platformer where **your only way to move is to shoot.**
 
-<p align="center">
-  <img src="PATH_TO_GAMEPLAY_GIF" alt="Rocketjump Gunslaughter gameplay">
-</p>
-
-<p align="center">
-  <a href="GAMEPLAY_LINK">▶ WATCH GAMEPLAY</a>
-  ·
-  <a href="BUILD_LINK">🎮 PLAY BUILD</a>
-</p>
+<a href="https://youtu.be/XqjWAu4EyHI">▶ WATCH GAMEPLAY</a>
+<a href="https://coyz-hiv.itch.io/rocketjump-gunslaughter">🎮 PLAY BUILD</a>
+  
+<img src="PATH_TO_GAMEPLAY_GIF" alt="Rocketjump Gunslaughter gameplay">
 
 ---
 
-## 💥 The Concept
+## 🎯 The Idea
 
-**Rocketjump Gunslaughter** is a 2D platformer built around rocket jumping.
+**Rocketjump Gunslaughter** is a 2D puzzle platformer built around a simple rule:
 
-Instead of treating weapons and movement as separate systems, the game combines them into one mechanic.
+> **You cannot walk. You can only shoot.**
 
-Every shot can be used not only to attack enemies, but also to **launch the player through the level**.
+The player has no traditional movement controls.
 
-> **SHOOT TO ATTACK.
-> SHOOT TO MOVE.**
+Every shot creates an impulse that moves the character through the level. To reach the next platform, the player has to aim, shoot and use the resulting momentum to control their movement.
 
-The result is a gameplay loop where movement, positioning and combat are closely connected.
+The challenge comes from the fact that **ammunition is limited while the player is in the air**.
+
+Every shot matters.
 
 ---
 
-## 🎮 Gameplay
+## 🖱️ Mouse-Only Movement
 
-The core gameplay loop:
+The entire game is controlled with the mouse.
+
+There is no:
 
 ```text
+W · A · S · D
+```
+
+There is no traditional jump button.
+
+Instead:
+
+```text
+AIM → SHOOT → GET IMPULSE → MOVE
+```
+
+The direction of the shot determines the direction of the resulting movement.
+
+The player therefore controls their character indirectly rather than directly.
+
+---
+
+## 🧠 Platforming as a Puzzle
+
+The game combines **platforming with spatial planning**.
+
+Before making a jump, the player needs to think about:
+
+* Where to aim
+* How much momentum the shot will create
+* Where the character will travel
+* How many shots are available
+* Where the next platform is
+* Which shots should be saved for later
+
+A successful jump is therefore not only about execution.
+
+It is also about **planning the sequence of movements before committing to it**.
+
+```text
+OBSERVE
+   ↓
 PLAN
-  ↓
+   ↓
 AIM
-  ↓
+   ↓
 SHOOT
-  ↓
-ROCKET JUMP
-  ↓
-MOVE
-  ↓
-FIGHT
-  ↓
-CLEAR THE LEVEL
+   ↓
+CONTROL MOMENTUM
+   ↓
+LAND
+   ↓
+REPEAT
 ```
-
-The player has to constantly think about **where to shoot and where the resulting explosion will send them**.
-
-A poorly positioned shot can make movement harder, while a well-timed rocket jump can be used to:
-
-* Reach higher platforms
-* Cross gaps
-* Change direction
-* Escape dangerous situations
-* Position yourself for the next attack
-* Combine movement and combat
 
 ---
 
-## 🧠 Core Mechanic
+## 💥 Limited Shots
 
-The entire game is designed around the interaction between **weapon fire and player movement**.
+While airborne, the player has a limited number of shots available.
 
-### Traditional Platformer
+This creates a resource-management layer on top of the platforming.
 
-```text
-MOVE → JUMP → ATTACK
-```
+Using a shot can:
 
-### Rocketjump Gunslaughter
+**SAVE YOU**
 
-```text
-             ┌── ATTACK
-             │
-SHOOT ───────┤
-             │
-             └── MOVEMENT
-```
+or
 
-The goal was to make the player gradually understand that **the weapon itself is part of the movement system**.
+**LEAVE YOU WITH NO WAY TO REACH THE NEXT PLATFORM.**
+
+The player has to decide when to spend their limited movement resources and when to rely on the momentum they already have.
 
 ---
 
-## 🎯 Game Design
+## 🎮 Core Gameplay
 
-The game is built around a simple principle:
+The entire game revolves around three interconnected systems:
 
-> **One mechanic. High skill ceiling.**
+### 🖱️ Aim
 
-Rather than introducing many unrelated mechanics, the project focuses on making one mechanic useful in as many situations as possible.
+Use the mouse to determine the direction of the shot.
 
-The challenge comes from combining:
+### 💥 Impulse
 
-* Positioning
-* Timing
-* Aim
-* Movement
-* Enemy encounters
-* Level geometry
+Each shot changes the player's velocity and trajectory.
 
-As the player becomes more familiar with the mechanic, the same levels can be approached with greater speed and precision.
+### 🧠 Planning
+
+Limited shots force the player to think ahead and plan their movement through the level.
+
+Together they create:
+
+> **A platformer where movement itself is the puzzle.**
 
 ---
 
 ## 🛠️ Development
 
-This project was developed as a personal game project in **Godot**.
+**Rocketjump Gunslaughter** was developed as a personal project in Godot.
+
+The project was created to explore how far a platforming game could be built around a single unusual movement mechanic.
 
 ### My Contribution
 
-As the sole developer, I worked on:
+As the sole developer:
 
 * Gameplay programming
-* Rocket-jump mechanic
-* Player movement
-* Weapon mechanics
-* Game design
+* Player movement system
+* Mouse-based controls
+* Rocket-jump / impulse mechanic
+* Limited-air-shot system
 * Level design
-* Enemy interactions
-* Prototyping
+* Game design
+* Physics tuning
 * Visual assets
+* Prototyping
 * Gameplay iteration
 
 ---
 
 ## ⚙️ Technical Focus
 
-The main technical challenge was creating a movement system where **weapon interaction directly affects player velocity**.
+The core technical challenge was building a movement system where the player has **no direct movement input**.
 
-The project involved working with:
+Instead, the character's trajectory is controlled indirectly through impulses generated by the weapon.
 
-* 2D movement and physics
-* Velocity and impulse-based movement
+This required working with:
+
+* 2D physics
+* Velocity and acceleration
+* Impulse-based movement
+* Mouse input
+* Projectile / weapon behaviour
+* Airborne state management
 * Collision detection
-* Player state and movement logic
-* Weapon/projectile behaviour
-* Gameplay interaction
+* Physics tuning
 * Level geometry
-* Game feel and movement tuning
 
 **Engine:** Godot
 **Language:** GDScript
 **Project Type:** Personal Project
-**Genre:** 2D Platformer
-
----
-
-## 🎨 Visual Direction
-
-The visual style was designed to keep the gameplay readable and put the focus on movement, positioning and the rocket-jump mechanic.
-
-Visual assets and gameplay elements were created specifically for the project.
+**Genre:** Puzzle Platformer
 
 ---
 
@@ -174,33 +189,33 @@ Visual assets and gameplay elements were created specifically for the project.
 
 ## 🎥 Gameplay
 
-▶ **[Watch the gameplay video](GAMEPLAY_LINK)**
+▶ **[Watch the gameplay video](https://youtu.be/XqjWAu4EyHI)**
 
 ---
 
 ## 🎮 Play the Game
 
-**[Download / Play the Build](BUILD_LINK)**
+**[Download / Play the Build](https://coyz-hiv.itch.io/rocketjump-gunslaughter)**
 
 ---
 
 ## 📚 Project Information
 
-|                   |                |
-| ----------------- | -------------- |
-| **Engine**        | Godot          |
-| **Language**      | GDScript       |
-| **Genre**         | 2D Platformer  |
-| **Development**   | Solo           |
-| **Core Mechanic** | Rocket Jumping |
-| **Status**        | Completed      |
+|                    |                        |
+| ------------------ | ---------------------- |
+| **Engine**         | Godot                  |
+| **Language**       | GDScript               |
+| **Genre**          | Puzzle Platformer      |
+| **Development**    | Solo                   |
+| **Control Scheme** | Mouse Only             |
+| **Core Mechanic**  | Impulse-Based Movement |
+| **Resource**       | Limited Airborne Shots |
+| **Status**         | Completed              |
 
 ---
 
 <p align="center">
 
-### 🚀 Shoot. Fly. Survive.
-
-**[▶ WATCH GAMEPLAY](GAMEPLAY_LINK)** · **[🎮 PLAY BUILD](BUILD_LINK)**
+# 🖱️ AIM. SHOOT. THINK. MOVE.
 
 </p>

@@ -5,7 +5,7 @@
 <a href="https://youtu.be/XqjWAu4EyHI">▶ WATCH GAMEPLAY</a>
 <a href="https://coyz-hiv.itch.io/rocketjump-gunslaughter">🎮 PLAY BUILD</a>
   
-<img src="PATH_TO_GAMEPLAY_GIF" alt="Rocketjump Gunslaughter gameplay">
+![RGGIF](RGGIF.gif)
 
 ---
 
@@ -175,15 +175,8 @@ This required working with:
 
 ## 📸 Screenshots
 
-<p align="center">
-  <img src="SCREENSHOT_1" width="48%">
-  <img src="SCREENSHOT_2" width="48%">
-</p>
-
-<p align="center">
-  <img src="SCREENSHOT_3" width="48%">
-  <img src="SCREENSHOT_4" width="48%">
-</p>
+![RGGIF1](RGGIF1.gif)
+![RGGIF2](RGGIF2.gif)
 
 ---
 
